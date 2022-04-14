@@ -18,10 +18,10 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color("AccentColor"))
                             .padding([.top, .bottom], 10)
-                            .padding([.leading, .trailing], 30)
+                            .padding([.leading, .trailing], 40)
                             .background(Color.white)
                     }
-                    Button(action: {}, label: {
+                    NavigationLink(destination: WhatIsKetupatView().navigationBarTitle(Text(""), displayMode: .inline), label: {
                         HStack {
                             Text("Let's weave together")
                                 .font(.system(size: 40))
@@ -36,7 +36,8 @@ struct HomeView: View {
                         .padding([.top, .bottom], 10)
                         .padding([.leading, .trailing], 30)
                         .background(Color.white)
-                    })
+                    }
+                    )
                 }
             }
         }

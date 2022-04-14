@@ -2,6 +2,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HomeView()
+        NavigationView{
+            HomeView()
+                .navigationBarTitle(Text(""), displayMode: .inline)
+        }
+        .navigationViewStyle(.stack)
     }
 }
