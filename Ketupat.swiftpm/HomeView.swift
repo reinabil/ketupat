@@ -14,7 +14,7 @@ struct HomeView: View {
                 VStack(spacing: 30) {
                     ZStack{
                         Text("Weaving Ketupat")
-                            .font(.system(size: geo.size.width * 0.08))
+                            .font(.system(size: 72))
                             .fontWeight(.bold)
                             .foregroundColor(Color("AccentColor"))
                             .padding([.top, .bottom], 10)
@@ -24,7 +24,7 @@ struct HomeView: View {
                     NavigationLink(destination: WhatIsKetupatView().navigationBarTitle(Text(""), displayMode: .inline), label: {
                         HStack {
                             Text("Let's weave together")
-                                .font(.system(size: 40))
+                                .font(.system(.largeTitle))
                                 .fontWeight(.bold)
                             .foregroundColor(Color("AccentColor"))
                             .padding(.trailing, 10)
