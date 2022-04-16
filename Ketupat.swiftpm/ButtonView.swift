@@ -30,7 +30,6 @@ struct ButtonView: View {
                 
                 if ((floor(Double(numberOfBox/10)).truncatingRemainder(dividingBy: 2)) == 0) && (floor(Double(numberOfBox%10).truncatingRemainder(dividingBy: 2)) == 0) {
                     playSound(soundName: "click")
-                    print("HORE")
                     viewModel.condition.toggle()
                     if viewModel.condition {
                         globalData.value += 1
@@ -68,7 +67,7 @@ struct ButtonView: View {
     }
     
     func playSound(soundName: String) {
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "wav") else { return }
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
 
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)

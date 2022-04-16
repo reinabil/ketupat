@@ -44,54 +44,50 @@ struct FinishView: View {
                     HStack{
                         GeometryReader {
                             geo in
-                            
-                                VStack(alignment: .leading, spacing: 16){
-                                    Text("Points : \(score)\nTime elapsed : \(time)\nFinal Score : \(finalScoreGenerator(score, time))")
-                                        .font(.system(size: 72))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color("AccentColor"))
-                                        .padding(.bottom, 16)
-                                        .multilineTextAlignment(.leading)
-                                    HStack(alignment: .center, spacing: 16){
-                                        Image("initialGame")
-                                            .resizable()
-                                            .frame(width: 200, height: 200, alignment: .leading)
-                                        Image(systemName: "arrow.right")
-                                            .resizable()
-                                            .frame(width: 50, height: 50, alignment: .leading)
+                            HStack(alignment: .top, spacing: 32) {
+                                ScrollView {
+                                    VStack(alignment: .leading){
+                                        Text("Final Score : \(finalScoreGenerator(score, time))\n(0-100)")
+                                            .font(.system(size: 72))
+                                            .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
-                                        Image("goalGame")
-                                            .resizable()
-                                            .frame(width: 200, height: 200, alignment: .leading)
-                                           
-                                    }
-                                    Text("You will be given many boxes of the same color. When you touch one of these squares, the color of the box will change. Your task is to turn the squares into a series of plaits that don't have adjacent colors like ketupat. Remember, the time spent when you play determines your final score")
-                                        .font(.system(size: 24))
-                                        .padding([.top], 32)
-                                    
-                                    Spacer()
-                                    HStack(alignment: .bottom) {
-                                        Spacer()
-                                        Button(action: { NavigationUtil.popToRootView() }, label: {
-                                            HStack{
-                                                Text("Start")
-                                                    .font(.system(size: 40))
-                                                    .fontWeight(.bold)
-                                                    .foregroundColor(.white)
-                                                Image(systemName: "arrow.right")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30, alignment: .leading)
-                                                    .padding(.leading, 8)
-                                                    .foregroundColor(.white)
-                                            }
-                                            .padding([.top, .bottom], 10)
-                                            .padding([.leading, .trailing], 30)
-                                            .background(Color("AccentColor"))
-                                        })
+                                            .padding(.bottom, 16)
+                                            .multilineTextAlignment(.leading)
+                                        Text("Wow, you have successfully woven the Ketupat. Here are some ketupat philosophies :\n\n1. Woven coconut leaves : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n2. Ketupat shape : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n3.  Contain rice : illustrates that every human being has the lust of the world\n\n4. Janur : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, the philosophy of ketupat is the lust of the world wrapped in conscience. 😇")
+                                            .font(.system(size: 24))
                                     }
                                 }
-                           
-                            
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    ZStack(alignment: .bottomLeading){
+                                        Image("cookedKetupat")
+                                            .resizable()
+                                            .frame(width: geo.size.width/2.5, height: geo.size.height * 0.8, alignment: .leading)
+                                            .ignoresSafeArea()
+                                        Text("Cooked ketupat.\nPhoto by Mufid Majnun on Unsplash")
+                                            .foregroundColor(.white)
+                                            .padding(16)
+                                    }
+                                    Spacer()
+                                    Button(action: {NavigationUtil.popToRootView()}, label: {
+                                        HStack{
+                                            Text("Go to home")
+                                                .font(.system(size: 40))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                            Image(systemName: "house.fill")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .padding(.leading, 8)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding([.top, .bottom], 10)
+                                        .padding([.leading, .trailing], 30)
+                                        .background(Color("AccentColor"))
+                                    })
+                                    
+                                }
+                            }
                         }
                             .frame(width: geo.size.width * 0.9 - 140, height: geo.size.height * 0.8, alignment: .leading)
                             .padding()
@@ -124,3 +120,5 @@ struct NavigationUtil {
         return nil
     }
 }
+
+

@@ -1,6 +1,9 @@
 import SwiftUI
+import UIKit
+import AVFoundation
 
 struct GameView: View {
+    @State var player: AVAudioPlayer?
     @ObservedObject var globalData = GlobalData()
     @State var currentDate = Date()
     var ketupatTest = [
@@ -31,7 +34,7 @@ struct GameView: View {
                         .foregroundColor(.white)
                         .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .leading)
                     VStack(alignment: .leading){
-                        ScrollView([.vertical]){
+                        ScrollView([.vertical, .horizontal]){
                             HStack{
                                 ZStack{
                                     HStack{
@@ -56,7 +59,7 @@ struct GameView: View {
                                 }
                                 .border(Color("AccentColor"), width: 5)
                                 .padding(.leading, 32)
-                                
+                                Spacer()
                                 ZStack{
                                     HStack{
                                         Image(systemName: "sparkles")
@@ -90,10 +93,11 @@ struct GameView: View {
                                             .foregroundColor(.white)
                                     }
                                     .padding([.top, .bottom], 10)
-                                    .padding([.leading, .trailing], 50)
+                                    .padding([.leading, .trailing], 20)
                                     .background(Color("AccentColor"))
                                 })
                                 .simultaneousGesture(TapGesture().onEnded({globalData.timer.upstream.connect().cancel()}))
+                                .padding([.leading], 16)
                                 .padding([.trailing], 32)
                             }.padding(.top, 32)
                                 .padding(.bottom, 25)
@@ -112,4 +116,26 @@ struct GameView: View {
             
         })
     }
+    func playSound(soundName: String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            /* iOS 10 and earlier require the following line:
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 }
+

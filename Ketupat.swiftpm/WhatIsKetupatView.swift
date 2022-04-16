@@ -33,10 +33,15 @@ struct WhatIsKetupatView: View {
                                 }
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Image("uncookedKetupat")
-                                        .resizable()
-                                        .frame(width: geo.size.width/2.5, height: geo.size.height * 0.8, alignment: .leading)
-                                        .ignoresSafeArea()
+                                    ZStack(alignment: .bottomLeading){
+                                        Image("uncookedKetupat")
+                                            .resizable()
+                                            .frame(width: geo.size.width/2.5, height: geo.size.height * 0.8, alignment: .leading)
+                                            .ignoresSafeArea()
+                                        Text("Uncooked ketupat.\nPhoto by Mufid Majnun on Unsplash")
+                                            .foregroundColor(.white)
+                                            .padding(16)
+                                    }
                                     Spacer()
                                     NavigationLink(destination: IntroGameView(), label: {
                                         HStack{
