@@ -14,20 +14,13 @@ struct ButtonView: View {
     @State var numberOfBox: Int
     @ObservedObject var globalData: GlobalData
     @State var player: AVAudioPlayer?
-    // Receive the view model
     @ObservedObject var viewModel: KetupatButton
     let size: CGFloat
     
     
     var body: some View {
-        
         Button {
-           
-            // Use this to animate the change
             withAnimation {
-
-                // The condition will automatically change the color, see the view model code
-                
                 if ((floor(Double(numberOfBox/10)).truncatingRemainder(dividingBy: 2)) == 0) && (floor(Double(numberOfBox%10).truncatingRemainder(dividingBy: 2)) == 0) {
                     playSound(soundName: "click")
                     viewModel.condition.toggle()

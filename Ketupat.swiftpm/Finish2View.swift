@@ -1,29 +1,34 @@
 import SwiftUI
 import Foundation
 
-struct FinishView: View {
-    @Binding var score: Int
+struct Finish2View: View {
+    @Binding var scoreFire: Int
     @Binding var time: Int
     @ObservedObject var globalData = GlobalData()
     
     @State var finalScore = 0.0
     
     func finalScoreGenerator(_ sc: Int, _ ti: Int) -> Int{
-        if sc < 45 {
-            return sc
+        if sc < 250 {
+            let res = (sc/3)-50
+            if res <= 0 {
+                return 0
+            } else {
+                return res
+            }
         }
         if ti >= 0 && ti <= 30 {
-            return sc + 50
+            return sc/3
         } else if ti >= 31 && ti <= 60 {
-            return sc + 40
+            return (sc/3)-10
         } else if ti >= 61 && ti <= 90 {
-            return sc + 30
+            return (sc/3)-20
         } else if ti >= 91 && ti <= 120 {
-            return sc + 20
+            return (sc/3)-30
         } else if ti >= 121 && ti <= 150 {
-            return sc + 10
+            return (sc/3)-40
         } else {
-            return sc + 0
+            return (sc/3)-50
         }
     }
     
@@ -47,35 +52,26 @@ struct FinishView: View {
                             HStack(alignment: .top, spacing: 32) {
                                 ScrollView {
                                     VStack(alignment: .leading){
-                                        Text("Part 1 Score : \(finalScoreGenerator(score, time))\n(0-100)")
+                                        Text("Part 2 Score : \(finalScoreGenerator(scoreFire, time))\n(0-100)")
                                             .font(.system(size: 72))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)
                                             .multilineTextAlignment(.leading)
-                                        Text("Wow, you have successfully woven the Ketupat. Here are some ketupat philosophies :\n\n1. Woven coconut leaves : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n2. Ketupat shape : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n3.  Contain rice : illustrates that every human being has the lust of the world\n\n4. Janur : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, the philosophy of ketupat is the lust of the world wrapped in conscience. 😇")
+                                        Text("Cool! You have simulated how to cook ketupat which is usually done by Indonesians when welcoming Eid Al-Fitr.\n\nIn Indonesia, we also used to say \"Minal Aidin Wal Faizin\" to each other during Eid. This sentence means \"May you be among those who have happy returns\"\n\nHopefully the momentum of Eid al-Fitr will be a good start for inter-religious harmony in the world.\n\nHappy Eid al-Fitr! Minal Aidin Wal Faizin! 😊")
                                             .font(.system(size: 24))
                                     }
                                 }
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    ZStack(alignment: .bottomLeading){
-                                        Image("cookedKetupat")
-                                            .resizable()
-                                            .frame(width: geo.size.width/2.5, height: geo.size.height * 0.8, alignment: .leading)
-                                            .ignoresSafeArea()
-                                        Text("Cooked ketupat.\nPhoto by Mufid Majnun on Unsplash")
-                                            .foregroundColor(.white)
-                                            .padding(16)
-                                    }
                                     Spacer()
-                                    NavigationLink(destination: IntroGame2View(), label: {
+                                    Button(action: {NavigationUtil.popToRootView() }, label: {
                                         HStack{
-                                            Text("Part 2")
+                                            Text("Back to home")
                                                 .font(.system(size: 40))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.white)
-                                            Image(systemName: "arrow.right")
+                                            Image(systemName: "house.fill")
                                                 .resizable()
                                                 .frame(width: 30, height: 30, alignment: .leading)
                                                 .padding(.leading, 8)
@@ -97,28 +93,3 @@ struct FinishView: View {
         }
     }
 }
-
-struct NavigationUtil {
-    static func popToRootView() {
-        findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
-            .popToRootViewController(animated: true)
-    }
-
-    static func findNavigationController(viewController: UIViewController?) -> UINavigationController? {
-        guard let viewController = viewController else {
-            return nil
-        }
-
-        if let navigationController = viewController as? UINavigationController {
-            return navigationController
-        }
-
-        for childViewController in viewController.children {
-            return findNavigationController(viewController: childViewController)
-        }
-
-        return nil
-    }
-}
-
-

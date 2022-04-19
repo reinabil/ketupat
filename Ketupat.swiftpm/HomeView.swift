@@ -13,7 +13,7 @@ struct HomeView: View {
                     .frame(width: geo.size.width, height: geo.size.height, alignment: .leading)
                 VStack(spacing: 30) {
                     ZStack{
-                        Text("Ketupat")
+                        Text("Cooking Ketupat")
                             .font(.system(size: 72))
                             .fontWeight(.bold)
                             .foregroundColor(Color("AccentColor"))
@@ -23,7 +23,7 @@ struct HomeView: View {
                     }
                     NavigationLink(destination: WhatIsKetupatView().navigationBarTitle(Text(""), displayMode: .inline), label: {
                         HStack {
-                            Text("Let's weave ketupat")
+                            Text("Let's cook ketupat")
                                 .font(.system(.largeTitle))
                                 .fontWeight(.bold)
                             .foregroundColor(Color("AccentColor"))

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct IntroGameView: View {
+struct IntroGame2View: View {
     var body: some View {
         GeometryReader {
             geo in
@@ -20,33 +20,33 @@ struct IntroGameView: View {
                             geo in
                             
                                 VStack(alignment: .leading, spacing: 16){
-                                    Text("Part 1. How to Play")
+                                    Text("Part 2. How to Play")
                                         .font(.system(size: 72))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color("AccentColor"))
                                         .padding(.bottom, 16)
                                         .multilineTextAlignment(.leading)
                                     HStack(alignment: .center, spacing: 16){
-                                        Image("initialGame")
+                                        Image("fireInitial")
                                             .resizable()
                                             .frame(width: 200, height: 200, alignment: .leading)
                                         Image(systemName: "arrow.right")
                                             .resizable()
                                             .frame(width: 50, height: 50, alignment: .leading)
                                             .foregroundColor(Color("AccentColor"))
-                                        Image("goalGame")
+                                        Image("fireGoal")
                                             .resizable()
                                             .frame(width: 200, height: 200, alignment: .leading)
                                            
                                     }
-                                    Text("You will be given many squares of the same color. When you touch one of these squares, the color of the box will change. Your task is to turn the squares into a series of plaits that don't have adjacent colors like ketupat. Remember, the time spent when you play determines your final score")
+                                    Text("Wow, you just finished weaving the Ketupat. After finishing weaving, Ketupat is filled with rice and then cooked for quite a long time, about 2 hours. Indonesians usually use an oil stove to cook ketupat so it doesn't waste gas or electricity too much. In the next game, you will play to increase the temperature of the stove so that we can cook ketupat quickly. Touch the box repeatedly until the temperature reaches 300 degrees Celsius")
                                         .font(.system(size: 24))
                                         .padding([.top], 32)
                                     
                                     Spacer()
                                     HStack(alignment: .bottom) {
                                         Spacer()
-                                        NavigationLink(destination: GameView(), label: {
+                                        NavigationLink(destination: Game2View(), label: {
                                             HStack{
                                                 Text("Start")
                                                     .font(.system(size: 40))
