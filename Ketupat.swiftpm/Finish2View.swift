@@ -10,7 +10,7 @@ struct Finish2View: View {
     
     func finalScoreGenerator(_ sc: Int, _ ti: Int) -> Int{
         if sc < 250 {
-            let res = (sc/3)-50
+            let res = (sc/4)
             if res <= 0 {
                 return 0
             } else {
