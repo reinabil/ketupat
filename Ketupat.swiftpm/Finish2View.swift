@@ -49,8 +49,7 @@ struct Finish2View: View {
                     HStack{
                         GeometryReader {
                             geo in
-                            HStack(alignment: .top, spacing: 32) {
-                                ScrollView {
+                            ScrollView {
                                     VStack(alignment: .leading){
                                         Text("Part 2 Score : \(finalScoreGenerator(scoreFire, time))\n(0-100)")
                                             .font(.system(size: 72))
@@ -58,10 +57,20 @@ struct Finish2View: View {
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)
                                             .multilineTextAlignment(.leading)
-                                        Text("Cool! You have simulated how to cook ketupat which is usually done by Indonesians when welcoming Eid Al-Fitr.\n\nIn Indonesia, we also used to say \"Minal Aidin Wal Faizin\" to each other during Eid. This sentence means \"May you be among those who have happy returns\"\n\nHopefully the momentum of Eid al-Fitr will be a good start for inter-religious harmony in the world.\n\nHappy Eid al-Fitr! Minal Aidin Wal Faizin! 😊")
-                                            .font(.system(size: 24))
+                                        HStack(alignment: .top){
+                                            Image("finish")
+                                                .resizable()
+                                                .clipped()
+                                                .scaledToFill()
+                                                .frame(width: 300, height: 300, alignment: .leading)
+                                                .ignoresSafeArea()
+                                            Text("Cool! You have simulated how to cook ketupat which is usually done by Indonesians when welcoming Eid Al-Fitr.\n\nIn Indonesia, we also used to say \"Minal Aidin Wal Faizin\" to each other during Eid. This sentence means \"May you be among those who have happy returns\"\n\nHopefully the momentum of Eid al-Fitr will be a good start for inter-religious harmony in the world.\n\nHappy Eid al-Fitr! Minal Aidin Wal Faizin! 😊")
+                                                .font(.system(size: 24))
+                                        }
                                     }
                                 }
+                                Spacer()
+                            HStack{
                                 Spacer()
                                 VStack(alignment: .trailing) {
                                     Spacer()
@@ -81,9 +90,9 @@ struct Finish2View: View {
                                         .padding([.leading, .trailing], 30)
                                         .background(Color("AccentColor"))
                                     })
-                                    
                                 }
                             }
+                            
                         }
                             .frame(width: geo.size.width * 0.9 - 140, height: geo.size.height * 0.8, alignment: .leading)
                             .padding()

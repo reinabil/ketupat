@@ -100,7 +100,8 @@ struct Game2View: View {
                 }
             }
         }.onAppear(perform: {
-            globalData.timeElapsed = 0
+            globalData.fireTimeElapsed = 0
+            globalData.heightFire = 50
             
         })
     }

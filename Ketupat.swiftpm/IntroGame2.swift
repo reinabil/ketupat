@@ -39,7 +39,7 @@ struct IntroGame2View: View {
                                             .frame(width: 200, height: 200, alignment: .leading)
                                            
                                     }
-                                    Text("Wow, you just finished weaving the Ketupat. After finishing weaving, Ketupat is filled with rice and then cooked for quite a long time, about 2 hours. Indonesians usually use an oil stove to cook ketupat so it doesn't waste gas or electricity too much. In the next game, you will play to increase the temperature of the stove so that we can cook ketupat quickly. Touch the box repeatedly until the temperature reaches 300 degrees Celsius")
+                                    Text("After finishing weaving, Ketupat is filled with rice and then cooked for quite a long time, about 2 hours. Indonesians usually use an oil stove to cook ketupat so it doesn't waste gas or electricity too much. In the next game, you will play to increase the temperature of the stove so that we can cook ketupat quickly. Touch the box repeatedly until the temperature reaches 300 degrees Celsius")
                                         .font(.system(size: 24))
                                         .padding([.top], 32)
                                     
