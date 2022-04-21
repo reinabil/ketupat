@@ -14,4 +14,4 @@ Through this **Ketupat** Swift Playground, I would like to express my happiness 
  4. 🔊  Computer Keyboard Impact 6, [Licensed](https://www.icloud.com/iclouddrive/02fsKhQZJMloQEP5ilzvTkJLw#license_certificate_QL2JAS3PKB) SFX from Envato Elements
 
 # Screenshots
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/Dg4FgTx" data-context="false" ><a href="//imgur.com/a/Dg4FgTx"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+[Imgur](https://imgur.com/Yg9HPlv)
