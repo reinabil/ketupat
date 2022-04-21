@@ -13,6 +13,10 @@ Through this **Ketupat** Swift Playground, I would like to express my happiness 
 | ![Part 1 Finish](https://i.imgur.com/l9NKShO.png) | ![Part 2 How to Play](https://i.imgur.com/UfS6mW4.png) |
 | ![Part 2 Game](https://i.imgur.com/L1JVx1c.png) | ![Part 2 Finish](https://i.imgur.com/FyzuaLE.png) |
 
+## About Me
+|   |   |
+|--|--|
+| ![enter image description here](https://i.imgur.com/rc4bfpN.png) | I am an Indonesian who likes to explore everything and has a dream to be able to create many new things to help many people. Currently studying at Apple Developer Academy @Binus, Indonesia and starting to like iOS programming. |
 
 
 
@@ -20,9 +24,9 @@ Through this **Ketupat** Swift Playground, I would like to express my happiness 
 
  1. 📸 Uncooked Ketupat, Photo by [Mufid Majnun](https://unsplash.com/@mufidpwt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/ketupat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
  2. 📸 Cooked Ketupat, Photo by [Mufid Majnun](https://unsplash.com/@mufidpwt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/ketupat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
- 3. 🔊  Modern Technology UI Tab Select, [Licensed](https://www.icloud.com/iclouddrive/0feo7XlylPMbj62M2qb0s8pjg#license_certificate_D6U8WH4KM5) SFX from [Envato Elements](https://elements.envato.com/modern-technology-ui-tab-select-SN5H8RD)
- 4. 🔊  Computer Keyboard Impact 6, [Licensed](https://www.icloud.com/iclouddrive/02fsKhQZJMloQEP5ilzvTkJLw#license_certificate_QL2JAS3PKB) SFX from [Envato Elements](https://elements.envato.com/computer-keyboard-impact-6-QXVL8UW)
- 5.  🔊  Fire Whoosh, [Licensed](https://www.icloud.com/iclouddrive/070i-VukbnkF0C9o6GdGbUGYw#license_certificate_37RXPNA6EC) SFX from [Envato Elements](https://elements.envato.com/fire-whoosh-9CLRWVM)
+ 3. 🔊  Modern Technology UI Tab Select, [Licensed](https://www.icloud.com/iclouddrive/0feo7XlylPMbj62M2qb0s8pjg#license_certificate_D6U8WH4KM5) SFX from [Envato Elements](https://elements.envato.com/)
+ 4. 🔊  Computer Keyboard Impact 6, [Licensed](https://www.icloud.com/iclouddrive/02fsKhQZJMloQEP5ilzvTkJLw#license_certificate_QL2JAS3PKB) SFX from [Envato Elements](https://elements.envato.com/)
+ 5.  🔊  Fire Whoosh, [Licensed](https://www.icloud.com/iclouddrive/070i-VukbnkF0C9o6GdGbUGYw#license_certificate_37RXPNA6EC) SFX from [Envato Elements](https://elements.envato.com/)
 
    
 
