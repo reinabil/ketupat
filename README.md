@@ -14,7 +14,7 @@ Through this **Ketupat** Swift Playground, I would like to express my happiness 
 | ![Part 2 Game](https://i.imgur.com/L1JVx1c.png) | ![Part 2 Finish](https://i.imgur.com/FyzuaLE.png) |
 
 ## About Me
-| 21th  | From Jakarta, indonesia |
+| 21th  | Jakarta, indonesia |
 |--|--|
 | ![enter image description here](https://i.imgur.com/rc4bfpN.png) | I am an Indonesian who likes to explore everything and has a dream to be able to create many new things to help many people. Currently studying at Apple Developer Academy @Binus, Indonesia and starting to like iOS programming. |
 
