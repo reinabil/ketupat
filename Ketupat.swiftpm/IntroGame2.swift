@@ -21,7 +21,7 @@ struct IntroGame2View: View {
                             
                                 VStack(alignment: .leading, spacing: 16){
                                     Text("Part 2. How to Play")
-                                        .font(.system(size: 72))
+                                        .font(.system(size: 56))
                                         .fontWeight(.bold)
                                         .foregroundColor(Color("AccentColor"))
                                         .padding(.bottom, 16)

@@ -9,22 +9,7 @@ struct FinishView: View {
     @State var finalScore = 0.0
     
     func finalScoreGenerator(_ sc: Int, _ ti: Int) -> Int{
-        if sc < 45 {
-            return sc
-        }
-        if ti >= 0 && ti <= 30 {
-            return sc + 50
-        } else if ti >= 31 && ti <= 60 {
-            return sc + 40
-        } else if ti >= 61 && ti <= 90 {
-            return sc + 30
-        } else if ti >= 91 && ti <= 120 {
-            return sc + 20
-        } else if ti >= 121 && ti <= 150 {
-            return sc + 10
-        } else {
-            return sc + 0
-        }
+        return sc*2
     }
     
     var body: some View {
@@ -47,13 +32,13 @@ struct FinishView: View {
                             HStack(alignment: .top, spacing: 32) {
                                 ScrollView {
                                     VStack(alignment: .leading){
-                                        Text("Part 1 Score : \(finalScoreGenerator(score, time))\n(0-100)")
-                                            .font(.system(size: 72))
+                                        Text("You have successfully woven \(finalScoreGenerator(score, time)) servings of Ketupat")
+                                            .font(.system(size: 40))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)
                                             .multilineTextAlignment(.leading)
-                                        Text("Wow, you have successfully woven the Ketupat. Here are some ketupat philosophies :\n\n1. Woven coconut leaves : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n2. Ketupat shape : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n3.  Contain rice : illustrates that every human being has the lust of the world\n\n4. Janur : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, the philosophy of ketupat is the lust of the world wrapped in conscience. 😇")
+                                        Text("Cool, you just did what Indonesians usually do when welcoming Eid Al-Fitr, weaving Ketupat. Here are some ketupat philosophies :\n\n1. Woven coconut leaves : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n2. Ketupat shape : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n3.  Contain rice : illustrates that every human being has the lust of the world\n\n4. Janur : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, the philosophy of ketupat is the lust of the world wrapped in conscience. 😇")
                                             .font(.system(size: 24))
                                     }
                                 }
@@ -94,7 +79,9 @@ struct FinishView: View {
                     }
                 }
             }
-        }
+        }.onAppear(perform: {
+            globalData.timer.upstream.connect().cancel()
+        })
     }
 }
 

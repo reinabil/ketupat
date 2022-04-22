@@ -3,9 +3,11 @@ import UIKit
 import AVFoundation
 
 struct GameView: View {
+    @State private var isFinished = false
     @State var player: AVAudioPlayer?
     @ObservedObject var globalData = GlobalData()
     @State var currentDate = Date()
+    @State var alert = "Keep going until you reach 50 points or the time is up"
     var ketupatTest = [
         KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton(), KetupatButton()]
     var columns: [GridItem] = [GridItem(. fixed(70), spacing: 5),
@@ -48,8 +50,11 @@ struct GameView: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .onReceive(globalData.timer) { _ in
-                                                if globalData.timeElapsed >= 0 {
-                                                    globalData.timeElapsed += 1
+                                                if globalData.timeElapsed > 0 {
+                                                    globalData.timeElapsed -= 1
+                                                }
+                                                else if globalData.timeElapsed == 0 {
+                                                    isFinished = true
                                                 }
                                             }
                                     }
@@ -80,7 +85,7 @@ struct GameView: View {
                                 .border(Color("AccentColor"), width: 5)
                                 .padding(.leading, 16)
                                 Spacer()
-                                NavigationLink(destination: FinishView(score: $globalData.value, time: $globalData.timeElapsed).navigationBarBackButtonHidden(true), label: {
+                                NavigationLink(destination: FinishView(score: $globalData.value, time: $globalData.timeElapsed).navigationBarBackButtonHidden(true), isActive: $isFinished) {
                                     HStack{
                                         Text("Finish")
                                             .font(.system(size: 40))
@@ -95,12 +100,15 @@ struct GameView: View {
                                     .padding([.top, .bottom], 10)
                                     .padding([.leading, .trailing], 20)
                                     .background(Color("AccentColor"))
-                                })
-                                .simultaneousGesture(TapGesture().onEnded({globalData.timer.upstream.connect().cancel()}))
+                                }
+                                .disabled(globalData.value != 50)
+//                                .simultaneousGesture(TapGesture().onEnded({globalData.timer.upstream.connect().cancel()}))
                                 .padding([.leading], 16)
                                 .padding([.trailing], 32)
                             }.padding(.top, 32)
                                 .padding(.bottom, 25)
+                            Text(alert)
+                                .padding(.bottom, 10)
                             LazyVGrid(columns: columns, spacing: 5){
                                 ForEach((0...99), id: \.self){i in
                                     ButtonView(numberOfBox: i, globalData: globalData, viewModel: ketupatTest[i], size: 70)
@@ -112,8 +120,11 @@ struct GameView: View {
                 }
             }
         }.onAppear(perform: {
-            globalData.timeElapsed = 0
-            
+            globalData.timeElapsed = 60
+            globalData.value = 0
+            for i in ketupatTest {
+                i.condition = false
+            }
         })
     }
     func playSound(soundName: String) {

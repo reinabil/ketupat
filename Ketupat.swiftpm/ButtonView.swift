@@ -43,9 +43,6 @@ struct ButtonView: View {
                     }
                 } else {
                     playSound(soundName: "error")
-                        if globalData.value > 0 {
-                            globalData.value -= 1
-                        }
                         viewModel.colorToShow = Color(UIColor(red: 144/255, green: 31/255, blue: 31/255, alpha: 255))
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                             viewModel.colorToShow =  Color(UIColor(red: 183/255, green: 191/255, blue: 150/255, alpha: 100))

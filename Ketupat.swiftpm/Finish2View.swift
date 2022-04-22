@@ -8,27 +8,15 @@ struct Finish2View: View {
     
     @State var finalScore = 0.0
     
-    func finalScoreGenerator(_ sc: Int, _ ti: Int) -> Int{
-        if sc < 250 {
-            let res = (sc/4)
-            if res <= 0 {
-                return 0
-            } else {
-                return res
-            }
-        }
-        if ti >= 0 && ti <= 30 {
-            return sc/3
-        } else if ti >= 31 && ti <= 60 {
-            return (sc/3)-10
-        } else if ti >= 61 && ti <= 90 {
-            return (sc/3)-20
-        } else if ti >= 91 && ti <= 120 {
-            return (sc/3)-30
-        } else if ti >= 121 && ti <= 150 {
-            return (sc/3)-40
+    func finalScoreGenerator(_ sc: Int, _ ti: Int) -> String{
+        if sc < 100 {
+            return "Your Ketupat still can't be eaten because it's still raw 😅"
+        } else if sc >= 100 && sc < 200 {
+            return "Your Ketupat is still half cooked 🤤"
+        } else if sc >= 200 && sc < 300 {
+            return "Your Ketupat is uncooked perfectly 🤓"
         } else {
-            return (sc/3)-50
+            return "Your Ketupat is cooked perfectly 😋"
         }
     }
     
@@ -51,8 +39,8 @@ struct Finish2View: View {
                             geo in
                             ScrollView {
                                     VStack(alignment: .leading){
-                                        Text("Part 2 Score : \(finalScoreGenerator(scoreFire, time))\n(0-100)")
-                                            .font(.system(size: 72))
+                                        Text(finalScoreGenerator(scoreFire, time))
+                                            .font(.system(size: 40))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)
@@ -64,7 +52,7 @@ struct Finish2View: View {
                                                 .scaledToFill()
                                                 .frame(width: 300, height: 300, alignment: .leading)
                                                 .ignoresSafeArea()
-                                            Text("Cool! You have simulated how to cook ketupat which is usually done by Indonesians when welcoming Eid Al-Fitr.\n\nIn Indonesia, we also used to say \"Minal Aidin Wal Faizin\" to each other during Eid. This sentence means \"May you be among those who have happy returns\"\n\nHopefully the momentum of Eid al-Fitr will be a good start for inter-religious harmony in the world.\n\nHappy Eid al-Fitr! Minal Aidin Wal Faizin! 😊")
+                                            Text("Awesome 🤩 You have simulated how to cook ketupat which is usually done by Indonesians when welcoming Eid Al-Fitr.\n\nIn Indonesia, we also used to say \"Minal Aidin Wal Faizin\" to each other during Eid. This sentence means \"May you be among those who have happy returns\"\n\nHopefully the momentum of Eid al-Fitr will be a good start for inter-religious harmony in the world.\n\nHappy Eid al-Fitr! Minal Aidin Wal Faizin! 😊")
                                                 .font(.system(size: 24))
                                         }
                                     }
@@ -99,6 +87,8 @@ struct Finish2View: View {
                     }
                 }
             }
-        }
+        }.onAppear(perform: {
+            globalData.timer.upstream.connect().cancel()
+        })
     }
 }

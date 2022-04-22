@@ -22,7 +22,7 @@ struct WhatIsKetupatView: View {
                                 ScrollView {
                                     VStack(alignment: .leading){
                                         Text("What is\nKetupat?")
-                                            .font(.system(size: 72))
+                                            .font(.system(size: 56))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)

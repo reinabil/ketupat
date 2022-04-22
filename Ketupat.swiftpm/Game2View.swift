@@ -6,7 +6,7 @@ struct Game2View: View {
     @State var player: AVAudioPlayer?
     @ObservedObject var globalData = GlobalData()
     @State var currentDate = Date()
-    
+    @State var isFinished = false
     
     var body: some View {
         GeometryReader {
@@ -37,8 +37,10 @@ struct Game2View: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .onReceive(globalData.timer) { _ in
-                                                if globalData.fireTimeElapsed >= 0 {
-                                                    globalData.fireTimeElapsed += 1
+                                                if globalData.fireTimeElapsed > 0 {
+                                                    globalData.fireTimeElapsed -= 1
+                                                } else {
+                                                    isFinished = true
                                                 }
                                             }
                                     }
@@ -69,7 +71,10 @@ struct Game2View: View {
                                 .border(Color("AccentColor"), width: 5)
                                 .padding(.leading, 16)
                                 Spacer()
-                                NavigationLink(destination: Finish2View(scoreFire: $globalData.heightFire, time: $globalData.fireTimeElapsed).navigationBarBackButtonHidden(true), label: {
+                                NavigationLink(destination: Finish2View(scoreFire: $globalData.heightFire, time: $globalData.fireTimeElapsed)
+                                    .navigationBarBackButtonHidden(true),
+                                               isActive: $isFinished)
+                                               {
                                     HStack{
                                         Text("Finish")
                                             .font(.system(size: 40))
@@ -84,15 +89,16 @@ struct Game2View: View {
                                     .padding([.top, .bottom], 10)
                                     .padding([.leading, .trailing], 20)
                                     .background(Color("AccentColor"))
-                                })
-                                .simultaneousGesture(TapGesture().onEnded({globalData.timer.upstream.connect().cancel()}))
+                                }
+                                .disabled(globalData.heightFire != 300)
                                 .padding([.leading], 16)
                                 .padding([.trailing], 32)
                             }.padding(.top, 32)
                                 .padding(.bottom, 25)
+                            Text("Don't give up before the temperature reaches 300 degrees Celsius or your time is up")
+                                .padding(.bottom, 10)
                             // FIRE GAME
                             FireButtonView(globalData: globalData, fires: 0, player: player)
-                            
                             
                         }
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.9, alignment: .leading)
@@ -100,7 +106,7 @@ struct Game2View: View {
                 }
             }
         }.onAppear(perform: {
-            globalData.fireTimeElapsed = 0
+            globalData.fireTimeElapsed = 60
             globalData.heightFire = 50
             
         })
