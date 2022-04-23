@@ -21,7 +21,7 @@ struct WhatIsKetupatView: View {
                             HStack(alignment: .top, spacing: 32) {
                                 ScrollView {
                                     VStack(alignment: .leading){
-                                        Text("What is\nKetupat?")
+                                        Text("What is Ketupat?")
                                             .font(.system(size: 56))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
