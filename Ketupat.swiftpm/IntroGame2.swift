@@ -18,7 +18,6 @@ struct IntroGame2View: View {
                     HStack{
                         GeometryReader {
                             geo in
-                            
                                 VStack(alignment: .leading, spacing: 16){
                                     Text("Part 2. How to Play")
                                         .font(.system(size: 56))
@@ -40,7 +39,7 @@ struct IntroGame2View: View {
                                            
                                     }
                                     Text("After finishing weaving, Ketupat is filled with rice and then cooked for quite a long time, about 2 hours. Indonesians usually use an oil stove to cook ketupat so it doesn't waste gas or electricity too much. In the next game, you will play to increase the temperature of the stove so that we can cook ketupat quickly. Touch the box repeatedly until the temperature reaches 300 degrees Celsius")
-                                        .font(.system(size: 24))
+                                        .font(.system(size: 18))
                                         .padding([.top], 32)
                                     
                                     Spacer()

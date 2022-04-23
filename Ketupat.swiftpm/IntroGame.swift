@@ -40,7 +40,7 @@ struct IntroGameView: View {
                                            
                                     }
                                     Text("You will be given many squares of the same color. When you touch one of these squares, the color of the box will change. Your task is to turn the squares into a series of plaits that don't have adjacent colors like ketupat. Remember, the time spent when you play determines your final score")
-                                        .font(.system(size: 24))
+                                        .font(.system(size: 18))
                                         .padding([.top], 32)
                                     
                                     Spacer()
