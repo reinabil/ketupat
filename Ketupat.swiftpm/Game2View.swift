@@ -95,7 +95,7 @@ struct Game2View: View {
                                 .padding([.trailing], 32)
                             }.padding(.top, 32)
                                 .padding(.bottom, 25)
-                            Text("Don't give up before the temperature reaches 300 degrees Celsius or your time is up")
+                            Text("Don't give up before the temperature reaches 300\u{2103} or your time is up")
                                 .padding(.bottom, 10)
                             // FIRE GAME
                             FireButtonView(globalData: globalData, fires: 0, player: player)
