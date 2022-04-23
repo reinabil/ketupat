@@ -1,6 +1,6 @@
 # Ketupat
 
-On May 2, 2022, Muslims around the world will celebrate Eid al-Fitr together. There are at least 1.9 billion Muslims who will be happy on that day. We who live in Indonesia, as a country with the largest Muslim population in the world, have our own characteristics in celebrating Eid al-Fitr. One of them is by cooking **Ketupat**.
+On May 2, 2022, Muslims around the world will celebrate Eid al-Fitr together. There are at least 1.9 billion Muslims who will be happy on that day. Indonesia as a country with the largest Muslim population in the world, has several characteristics in celebrating Eid al-Fitr. One of them is by cooking **Ketupat**.
 
 **Ketupat** is a food wrapped in woven young coconut leaves filled with rice. Ketupat was introduced by Sunan Kalijaga in the 15th century in Indonesia. And until now, Ketupat is used as a special Eid al-Fitr food that must be present at least once a year.
 
