@@ -38,46 +38,41 @@ struct FinishView: View {
                                             .foregroundColor(Color("AccentColor"))
                                             .padding(.bottom, 16)
                                             .multilineTextAlignment(.leading)
-                                        ZStack(alignment: .bottomLeading){
-                                            Image("cookedKetupat")
-                                                .resizable()
-                                                .frame(width: 300, height: 320, alignment: .leading)
-                                                .ignoresSafeArea()
-                                            Text("Cooked ketupat.\nPhoto by Mufid Majnun on Unsplash")
-                                                .foregroundColor(.white)
-                                                .padding(16)
-                                        }
-                                        Text("Cool, you just did what Indonesians usually do when welcoming Eid Al-Fitr, weaving Ketupat. Here are some ketupat philosophies :\n\n1. Woven coconut leaves : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n2. Ketupat shape : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n3.  Contain rice : illustrates that every human being has the lust of the world\n\n4. Janur : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, the philosophy of ketupat is the lust of the world wrapped in conscience. 😇")
+                                        
+                                        Text("Cool, you just did what Indonesians usually do when welcoming Eid Al-Fitr, weaving **ketupat**. Here are some **ketupat** philosophies :\n\n**1. Woven coconut leaves** : signifies the complexity of Javanese society which must be glued together by staying in touch\n\n**2. Ketupat shape** : basic human lust: emotion, hunger and thirst, desire to have something good, and forcing oneself\n\n**3.  Contain rice** : illustrates that every human being has the lust of the world\n\n**4. Janur** : is a vocabulary in Javanese for young coconut leaves. Derived from the word \"jaa a al-nur\" in Arabic which means the light has come\n\nOverall, **the philosophy of ketupat is the lust of the world wrapped in conscience**. 😇")
                                             .font(.system(size: 18))
-                                            .padding([.top], 32)
                                         Spacer()
-                                        HStack(alignment: .bottom) {
-                                            Spacer()
-                                            NavigationLink(destination: IntroGame2View(), label: {
-                                                HStack{
-                                                    Text("Part 2")
-                                                        .font(.system(size: 40))
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(.white)
-                                                    Image(systemName: "arrow.right")
-                                                        .resizable()
-                                                        .frame(width: 30, height: 30, alignment: .leading)
-                                                        .padding(.leading, 8)
-                                                        .foregroundColor(.white)
-                                                }
-                                                .padding([.top, .bottom], 10)
-                                                .padding([.leading, .trailing], 30)
-                                                .background(Color("AccentColor"))
-                                            })
-                                        }
                                     }
                                 }
-//                                Spacer()
-//                                VStack(alignment: .trailing) {
-//                                    
-//                                    
-//                                    
-//                                }
+                                VStack(alignment: .trailing) {
+                                    ZStack(alignment: .bottomLeading){
+                                        Image("cookedKetupat")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: geo.size.width * 0.4, height: geo.size.height * 0.8, alignment: .leading)
+                                            .clipped()
+                                        Text("Cooked ketupat.\nPhoto by Mufid Majnun on Unsplash")
+                                            .foregroundColor(.white)
+                                            .padding(16)
+                                    }
+                                    Spacer()
+                                    NavigationLink(destination: IntroGame2View(), label: {
+                                        HStack{
+                                            Text("Part 2")
+                                                .font(.system(size: 40))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                            Image(systemName: "arrow.right")
+                                                .resizable()
+                                                .frame(width: 30, height: 30, alignment: .leading)
+                                                .padding(.leading, 8)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding([.top, .bottom], 10)
+                                        .padding([.leading, .trailing], 30)
+                                        .background(Color("AccentColor"))
+                                    })
+                                }
                             }
                         }
                             .frame(width: geo.size.width * 0.9 - 140, height: geo.size.height * 0.8, alignment: .leading)

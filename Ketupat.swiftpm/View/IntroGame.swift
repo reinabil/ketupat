@@ -26,7 +26,8 @@ struct IntroGameView: View {
                                         .foregroundColor(Color("AccentColor"))
                                         .padding(.bottom, 16)
                                         .multilineTextAlignment(.leading)
-                                    HStack(alignment: .center, spacing: 16){
+                                    ScrollView([.horizontal]) {
+                                        HStack(alignment: .center, spacing: 16){
                                         Image("initialGame")
                                             .resizable()
                                             .frame(width: 200, height: 200, alignment: .leading)
@@ -38,8 +39,8 @@ struct IntroGameView: View {
                                             .resizable()
                                             .frame(width: 200, height: 200, alignment: .leading)
                                            
-                                    }
-                                    Text("You will be given many squares of the same color. When you touch one of these squares, the color of the box will change. Your task is to turn the squares into a series of plaits that don't have adjacent colors like ketupat. Remember, the time spent when you play determines your final score")
+                                    }}
+                                    Text("You will be given many squares of the same color. When you touch one of these squares, the color of the box will change. Your task is to turn the squares into a series of plaits that don't have adjacent colors like **ketupat**. Remember, the time spent when you play determines your final score")
                                         .font(.system(size: 18))
                                         .padding([.top], 32)
                                     
