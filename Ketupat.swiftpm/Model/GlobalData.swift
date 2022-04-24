@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  test button
-//
-//  Created by Nabil Rei on 13/04/22.
-//
-
 import Foundation
 import SwiftUI
 

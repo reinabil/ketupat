@@ -1,17 +1,8 @@
-//
-//  File.swift
-//  test button
-//
-//  Created by Nabil Rei on 13/04/22.
-//
-
 import Foundation
 import SwiftUI
 
 class KetupatButton: ObservableObject {
-    
-    // When this variable changes, it will change also the color.
-    var condition = false {
+     var condition = false {
         didSet {
             if condition {
                 colorToShow = Color(UIColor(red: 19/255, green: 58/255, blue: 27/255, alpha: 100))

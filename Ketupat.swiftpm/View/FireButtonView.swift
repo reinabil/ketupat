@@ -1,10 +1,3 @@
-//
-//  ButtonView.swift
-//  fire_test
-//
-//  Created by Nabil Rei on 16/04/22.
-//
-
 import Foundation
 import SwiftUI
 import AVFoundation

@@ -1,10 +1,3 @@
-//
-//  KetupatButton.swift
-//  test button
-//
-//  Created by Nabil Rei on 12/04/22.
-//
-
 import Foundation
 import SwiftUI
 import UIKit
