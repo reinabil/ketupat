@@ -1,4 +1,4 @@
-# Ketupat
+# Ketupat (Winning WWDC 2022)
 
 
 On May 2, 2022, Muslims around the world will celebrate Eid al-Fitr together. There are at least 1.9 billion Muslims who will be happy on that day. Indonesia as a country with the largest Muslim population in the world has several characteristics in celebrating Eid al-Fitr. One of them is by cooking **Ketupat**.
